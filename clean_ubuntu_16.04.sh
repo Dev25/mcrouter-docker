@@ -22,6 +22,7 @@ if [[ "x$1" != "x" ]]; then
     PKG_DIR=$1/pkgs
     INSTALL_DIR=$1/install
     strip "$INSTALL_DIR"/bin/mcrouter
+    strip "$INSTALL_DIR"/bin/mcpiper
     strip --strip-unneeded "$INSTALL_DIR/lib/libfolly*.so"
     rm -rf "$PKG_DIR"
     rm -rf "$INSTALL_DIR"/lib/*.a
