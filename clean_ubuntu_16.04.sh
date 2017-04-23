@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
-
 set -ex
 
-sudo apt-get install -y libdouble-conversion1v5 libgflags2v5 \
-    libboost-program-options1.58.0 libboost-filesystem1.58.0 \
-    libboost-system1.58.0 libboost-regex1.58.0 libboost-thread1.58.0 \
-    libboost-context1.58.0 libgoogle-glog0v5 libevent-2.0-5 libjemalloc1
+BOOST_VERSION=1.58.0
+
+sudo apt-get install -y \
+    libdouble-conversion1v5 \
+    libgflags2v5 \
+    libboost-program-options$BOOST_VERSION \
+    libboost-filesystem$BOOST_VERSION \
+    libboost-system$BOOST_VERSION \
+    libboost-regex$BOOST_VERSION \
+    libboost-thread$BOOST_VERSION \
+    libboost-context$BOOST_VERSION \
+    libgoogle-glog0v5 \
+    libevent-2.0-5 \
+    libjemalloc1
 
 sudo apt-get purge -y gcc g++ ragel autoconf \
     git libtool python-dev libssl-dev libevent-dev \
