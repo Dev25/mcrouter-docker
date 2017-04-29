@@ -1,7 +1,7 @@
 version: '2'
 services:
   mcrouter:
-    image: dev2502/mcrouter
+    image: devan2502/mcrouter
     depends_on:
       - cache
     ports:

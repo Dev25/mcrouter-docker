@@ -1,16 +1,15 @@
-FROM    gcr.io/google_containers/ubuntu-slim:0.6
+FROM    gcr.io/google_containers/ubuntu-slim:0.9
 
 ENV     MCROUTER_DIR            /usr/local/mcrouter
 ENV     MCROUTER_REPO           https://github.com/facebook/mcrouter.git
 ENV     MCROUTER_TAG            b788d1fb7b130a2b2915ecfcb9dcec97036ab027
 ENV     DEBIAN_FRONTEND         noninteractive
-ENV     MAKE_ARGS               -j4
 
 ADD     clean_ubuntu_16.04.sh /tmp
 
-RUN     apt-get update && apt-get install -y git ca-certificates sudo && \
+RUN     apt-get update && apt-get install -y --no-install-recommends ca-certificates git sudo && \
         mkdir -p $MCROUTER_DIR/repo && \
-        cd $MCROUTER_DIR/repo && git clone $MCROUTER_REPO &&  \
+        cd $MCROUTER_DIR/repo && git clone $MCROUTER_REPO && \
         cd $MCROUTER_DIR/repo/mcrouter  && git checkout $MCROUTER_TAG && \
         cd $MCROUTER_DIR/repo/mcrouter/mcrouter/scripts && \
         ./install_ubuntu_16.04.sh $MCROUTER_DIR && \
