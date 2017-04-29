@@ -3,7 +3,7 @@ mcrouter-docker
 
 This is a slim ubuntu 16.04 based Docker image for [Mcrouter](https://github.com/facebook/mcrouter), a popular memcache router. It speaks the memcached ASCII protocol and allows you to create memcached clusters (replicated or sharded) along with various features ranging from failover to flexible key routing. The [introduction to mcrouter](https://code.facebook.com/posts/296442737213493) blog post is a good read to learn more.
 
-The base image is `gcr.io/google_containers/ubuntu-slim:0.6` which provides a slimmed down `ubuntu:16.04` image by removing additional [packages](https://github.com/kubernetes/ingress/tree/master/images/ubuntu-slim) not typically required in a container. An updated version of mcrouter's `clean_ubuntu_14_04.sh` script further removes bloat from the image.
+The base image is `gcr.io/google_containers/ubuntu-slim`. Further bloat is removed by removing build dependencies and striping out symbols from the binaries/folly lib.
 
 Usage
 ---
@@ -22,7 +22,7 @@ Creating network "mcrouterdocker_default" with the default driver
 Creating mcrouterdocker_cache_1
 Creating mcrouterdocker_mcrouter_1
 Attaching to mcrouterdocker_cache_1, mcrouterdocker_mcrouter_1
-mcrouter_1  | I0418 19:51:03.447618     1 main.cpp:342] mcrouter --config-str={"pools":{"A":{"servers":["cache:11211"]}},"route":"PoolRoute|A"} -p 5000 
+mcrouter_1  | I0418 19:51:03.447618     1 main.cpp:342] mcrouter --config-str={"pools":{"A":{"servers":["cache:11211"]}},"route":"PoolRoute|A"} -p 5000
 mcrouter_1  | I0418 19:51:03.448180     1 main.cpp:468] 35.0.0-master mcrouter startup (1)
 mcrouter_1  | I0418 19:51:03.450022     1 main.cpp:368] Starting Memcache router
 mcrouter_1  | I0418 19:51:03.450181     1 Server-inl.h:116] Spawning AsyncMcServer
