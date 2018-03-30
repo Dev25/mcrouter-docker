@@ -1,8 +1,8 @@
-FROM    gcr.io/google_containers/ubuntu-slim:0.6
+FROM    ubuntu:16.04
 
 ENV     MCROUTER_DIR            /usr/local/mcrouter
 ENV     MCROUTER_REPO           https://github.com/facebook/mcrouter.git
-ENV     MCROUTER_TAG            b788d1fb7b130a2b2915ecfcb9dcec97036ab027
+ENV     MCROUTER_TAG            v0.37.0
 ENV     DEBIAN_FRONTEND         noninteractive
 ENV     MAKE_ARGS               -j4
 
