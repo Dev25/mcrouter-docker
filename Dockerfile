@@ -4,7 +4,7 @@ ENV     MCROUTER_DIR            /usr/local/mcrouter
 ENV     MCROUTER_REPO           https://github.com/facebook/mcrouter.git
 ENV     MCROUTER_TAG            release-37-0
 ENV     DEBIAN_FRONTEND         noninteractive
-ENV     MAKE_ARGS               -j4
+ENV     MAKE_ARGS               -j8
 
 ADD     clean_ubuntu_16.04.sh /tmp
 
